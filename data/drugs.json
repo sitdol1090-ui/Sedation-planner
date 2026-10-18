@@ -1,0 +1,162 @@
+[
+  {
+    "id": "propofol",
+    "ko": "프로포폴",
+    "en": "Propofol",
+    "kind": "sed",
+    "resp": true,
+    "adjunct": false,
+    "pedOnly": false,
+    "props": { "depth": 4, "analg": 0, "airway": 1, "recov": 4 },
+    "good": ["수십 초 안에 진정, 깊이 조절이 쉬움", "회복이 빠르고 항구토 효과", "항경련 작용"],
+    "bad": ["무호흡·상기도 폐쇄 (용량 의존)", "저혈압 (혈량 부족 시 심함)", "진통 없음 → 통증 자극에 체동", "주사 부위 통증"],
+    "routes": {
+      "ped": {
+        "IV": { "lab": "IV", "onset": 1, "dur": 8, "rec": 15, "os": 4, "inf": true,
+          "dose": [
+            { "t": "bolus", "r": [1, 2], "u": "mg/kg" },
+            { "t": "지속", "r": [100, 250], "u": "mcg/kg/min" }
+          ] }
+      },
+      "adult": {
+        "IV": { "lab": "IV", "onset": 1, "dur": 8, "rec": 12, "os": 4, "inf": true,
+          "dose": [
+            { "t": "bolus", "r": [0.5, 1], "u": "mg/kg" },
+            { "t": "추가", "r": [0.25, 0.5], "u": "mg/kg" },
+            { "t": "지속", "r": [25, 75], "u": "mcg/kg/min" }
+          ] }
+      }
+    }
+  },
+  {
+    "id": "dex",
+    "ko": "덱스메데토미딘",
+    "en": "Dexmedetomidine",
+    "kind": "sed",
+    "resp": false,
+    "adjunct": false,
+    "pedOnly": false,
+    "props": { "depth": 3, "analg": 1, "airway": 4, "recov": 1.5 },
+    "good": ["자발호흡과 기도 긴장도 유지", "깨우면 협조 가능한 진정", "EEG 변화가 적음", "emergence delirium 감소"],
+    "bad": ["서맥·저혈압 (부하 시 일시적 고혈압)", "진통 약함 → 통증 시술 단독 부적합", "onset이 느리고 회복이 김"],
+    "routes": {
+      "ped": {
+        "IN": { "lab": "코", "onset": 25, "dur": 75, "rec": 60, "os": 1,
+          "dose": [ { "t": "1회", "r": [2, 4], "u": "mcg/kg", "cap": 200 } ] },
+        "IV": { "lab": "IV", "onset": 10, "dur": 45, "rec": 60, "os": 2, "inf": true,
+          "dose": [
+            { "t": "부하 (10분)", "r": [1, 3], "u": "mcg/kg" },
+            { "t": "지속", "r": [1, 2], "u": "mcg/kg/h" }
+          ] }
+      },
+      "adult": {
+        "IV": { "lab": "IV", "onset": 10, "dur": 45, "rec": 45, "os": 2, "inf": true,
+          "dose": [
+            { "t": "부하 (10분)", "r": [0.5, 1], "u": "mcg/kg" },
+            { "t": "지속", "r": [0.2, 1], "u": "mcg/kg/h" }
+          ] }
+      }
+    }
+  },
+  {
+    "id": "ketamine",
+    "ko": "케타민",
+    "en": "Ketamine",
+    "kind": "sed",
+    "resp": false,
+    "adjunct": false,
+    "pedOnly": false,
+    "props": { "depth": 2, "analg": 4, "airway": 3.5, "recov": 2 },
+    "good": ["강한 진통", "기도반사·자발호흡 유지", "혈압 유지 (교감 자극)"],
+    "bad": ["무목적 움직임·안진 → 영상 artifact", "구토, emergence 반응", "후두경련 (드묾)", "분비물 증가, 고혈압·빈맥"],
+    "routes": {
+      "ped": {
+        "IV": { "lab": "IV", "onset": 1, "dur": 15, "rec": 45, "os": 4,
+          "dose": [
+            { "t": "초기", "r": [1, 2], "u": "mg/kg" },
+            { "t": "추가", "r": [0.5, 1], "u": "mg/kg" }
+          ] },
+        "IM": { "lab": "IM", "onset": 5, "dur": 25, "rec": 60, "os": 3,
+          "dose": [ { "t": "1회", "r": [4, 5], "u": "mg/kg" } ] }
+      },
+      "adult": {
+        "IV": { "lab": "IV", "onset": 1, "dur": 15, "rec": 45, "os": 4,
+          "dose": [
+            { "t": "초기", "r": [1, 1.5], "u": "mg/kg" },
+            { "t": "추가", "r": [0.5, 1], "u": "mg/kg" }
+          ] },
+        "IM": { "lab": "IM", "onset": 5, "dur": 25, "rec": 60, "os": 3,
+          "dose": [ { "t": "1회", "r": [4, 5], "u": "mg/kg" } ] }
+      }
+    }
+  },
+  {
+    "id": "midazolam",
+    "ko": "미다졸람",
+    "en": "Midazolam",
+    "kind": "sed",
+    "resp": true,
+    "adjunct": false,
+    "pedOnly": false,
+    "props": { "depth": 1.5, "analg": 0, "airway": 2.5, "recov": 2 },
+    "good": ["불안 감소, 전처치로 유용", "전향성 기억상실", "flumazenil로 길항 가능"],
+    "bad": ["단독으로 MRI 수준 부동 어려움", "paradoxical reaction (흥분)", "opioid 병용 시 무호흡"],
+    "routes": {
+      "ped": {
+        "PO": { "lab": "경구", "onset": 20, "dur": 40, "rec": 45, "os": 1,
+          "dose": [ { "t": "1회", "r": [0.5, 0.5], "u": "mg/kg", "cap": 20 } ] },
+        "IN": { "lab": "코", "onset": 10, "dur": 35, "rec": 40, "os": 2,
+          "dose": [ { "t": "1회", "r": [0.2, 0.3], "u": "mg/kg", "cap": 10 } ] },
+        "IV": { "lab": "IV", "onset": 3, "dur": 30, "rec": 40, "os": 3,
+          "dose": [ { "t": "1회 (적정)", "r": [0.05, 0.1], "u": "mg/kg", "cap": 2 } ] }
+      },
+      "adult": {
+        "IV": { "lab": "IV", "onset": 3, "dur": 30, "rec": 40, "os": 3,
+          "dose": [ { "t": "1회 (2–3분 간격 적정)", "r": [0.02, 0.03], "u": "mg/kg", "cap": 2 } ] }
+      }
+    }
+  },
+  {
+    "id": "chloral",
+    "ko": "포수클로랄",
+    "en": "Chloral hydrate",
+    "kind": "sed",
+    "resp": true,
+    "adjunct": false,
+    "pedOnly": true,
+    "props": { "depth": 2.5, "analg": 0, "airway": 2.5, "recov": 0.5 },
+    "good": ["경구 투여, IV 불필요"],
+    "bad": ["onset·효과 예측이 어려움, 나이가 많을수록 실패 증가", "잔여 진정이 수 시간 지속, 재진정", "카시트 내 기도 폐쇄 보고", "위장 자극"],
+    "routes": {
+      "ped": {
+        "PO": { "lab": "경구", "onset": 40, "dur": 80, "rec": 120, "os": 1,
+          "dose": [ { "t": "1회", "r": [50, 75], "u": "mg/kg",
+            "capByAge": [ { "below": 1, "cap": 1000 }, { "cap": 2000 } ] } ] }
+      }
+    }
+  },
+  {
+    "id": "fentanyl",
+    "ko": "펜타닐",
+    "en": "Fentanyl",
+    "kind": "opi",
+    "resp": true,
+    "adjunct": true,
+    "pedOnly": false,
+    "props": { "depth": 0.5, "analg": 4, "airway": 1.5, "recov": 3 },
+    "good": ["빠른 진통", "진정제 요구량 감소", "naloxone으로 길항 가능"],
+    "bad": ["호흡억제 (진정제와 상승작용)", "흉벽 강직 (고용량·빠른 주입)", "오심·소양감"],
+    "routes": {
+      "ped": {
+        "IV": { "lab": "IV", "onset": 2, "dur": 30, "rec": 30, "os": 3.5,
+          "dose": [ { "t": "1회", "r": [0.5, 1], "u": "mcg/kg", "cap": 50 } ] },
+        "IN": { "lab": "코", "onset": 10, "dur": 45, "rec": 30, "os": 2.5,
+          "dose": [ { "t": "1회", "r": [1.5, 2], "u": "mcg/kg", "cap": 100 } ] }
+      },
+      "adult": {
+        "IV": { "lab": "IV", "onset": 2, "dur": 30, "rec": 30, "os": 3.5,
+          "dose": [ { "t": "1회", "r": [0.5, 1], "u": "mcg/kg", "cap": 100 } ] }
+      }
+    }
+  }
+]

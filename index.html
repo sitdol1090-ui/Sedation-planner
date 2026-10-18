@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>진정 설계판</title>
+<meta name="description" content="소아·성인 시술 진정 약물 조합 설계">
+<meta name="theme-color" content="#0c111e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f5fa" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="진정 설계판">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div id="banner" class="banner" hidden></div>
+
+  <header class="top">
+    <div class="brand"><span class="eb">Procedural sedation planner</span><h1>진정 설계판</h1></div>
+    <div class="seg" role="group" aria-label="환자군">
+      <button id="m-ped" data-mode="ped" aria-pressed="true">소아</button>
+      <button id="m-adult" data-mode="adult" aria-pressed="false">성인</button>
+    </div>
+    <div class="pt">
+      <label class="fld"><span class="lab">나이</span><span class="row"><input id="age" type="number" inputmode="decimal" min="0" max="110" step="0.5" value="4"><span class="unit">세</span></span><span class="sub num" id="age-sub"></span></label>
+      <label class="fld"><span class="lab">체중</span><span class="row"><input id="wt" type="number" inputmode="decimal" min="1" max="200" step="0.5" value="16"><span class="unit">kg</span></span><span class="sub" id="wt-sub">나이로 추정</span></label>
+    </div>
+  </header>
+
+  <section class="procs" id="procs" aria-label="시술"></section>
+
+  <section class="intens">
+    <div class="panel icard" id="card-m">
+      <div class="ihead"><h3>움직임 멈춤</h3><span class="en">Immobility</span></div>
+      <div class="ival"><span class="big" id="m-val"></span><span class="lvl" id="m-lvl"></span></div>
+      <div class="steps" id="m-steps"></div>
+    </div>
+    <div class="panel icard" id="card-p">
+      <div class="ihead"><h3>통증</h3><span class="en">Pain</span></div>
+      <div class="ival"><span class="big" id="p-val"></span><span class="lvl" id="p-lvl"></span></div>
+      <div class="steps" id="p-steps"></div>
+    </div>
+    <div class="panel icard" id="card-t">
+      <div class="ihead"><h3>시간</h3><span class="en">Duration</span></div>
+      <div class="ival"><span class="big num" id="t-val"></span><span class="lvl" id="t-lvl"></span></div>
+      <input id="t-range" type="range" min="5" max="180" step="5" value="40" aria-label="시술 시간(분)">
+    </div>
+    <div class="panel icard" id="card-a">
+      <div class="ihead"><h3>숨길 공유</h3><span class="en">Shared airway</span></div>
+      <div class="ival"><span class="big" id="a-val"></span><span class="lvl" id="a-lvl"></span></div>
+      <div class="steps two" id="a-steps"></div>
+    </div>
+  </section>
+
+  <section class="flags" id="flags" aria-label="위험인자"></section>
+
+  <main class="board">
+    <aside class="panel pane" id="drugs"><div class="empty">데이터를 불러오는 중입니다.</div></aside>
+    <section class="panel pane" id="plan"></section>
+    <aside class="panel pane" id="evidence"></aside>
+  </main>
+
+  <footer class="foot">
+    <span id="status"></span>
+    <button id="install" class="chip" hidden>앱으로 설치</button>
+    <span>교육·케이스 토의용. 용량과 규칙은 원내 진정 프로토콜과 약제부 검토로 확정해서 쓰세요.</span>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
